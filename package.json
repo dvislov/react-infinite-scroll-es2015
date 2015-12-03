@@ -1,0 +1,31 @@
+{
+  "name": "react-infinite-scroll-es2015",
+  "version": "1.0.0",
+  "description": "React infinite scroll component as ES2015 module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vdv73rus/react-infinite-scroll-es2015.git"
+  },
+  "keywords": [
+    "React",
+    "Infinite",
+    "scroll",
+    "ES2015",
+    "ES6"
+  ],
+  "author": "Dmitry Vislov aka vdv73rus",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vdv73rus/react-infinite-scroll-es2015/issues"
+  },
+  "homepage": "https://github.com/vdv73rus/react-infinite-scroll-es2015#readme",
+  "dependencies": {
+    "deep-equal": "^1.0.1",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3"
+  }
+}
