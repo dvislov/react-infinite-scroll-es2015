@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import deepEqual from 'deep-equal';
 
-import {bindMethods} from 'bindMethods';
+import {bindMethods} from './bindMethods';
 
 function topPosition(domElt) {
   if (!domElt) {
