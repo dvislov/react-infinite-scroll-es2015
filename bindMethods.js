@@ -1,5 +1,5 @@
 export function bindMethods(component, names) {
-  if(_.isString(names)) {
+  if(typeof names === 'string') {
     names = [names];
   }
   names.forEach((name) =>
