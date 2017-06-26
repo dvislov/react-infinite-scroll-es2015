@@ -1,6 +1,6 @@
 {
   "name": "react-infinite-scroll-es2015",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React infinite scroll component as ES2015 module",
   "main": "index.js",
   "scripts": {
@@ -26,6 +26,7 @@
   "dependencies": {
     "deep-equal": "^1.0.1",
     "react": "^0.14.3",
+    "react-autobind": "^1.0.6",
     "react-dom": "^0.14.3"
   }
 }

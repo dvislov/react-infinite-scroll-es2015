@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import deepEqual from 'deep-equal';
-
-import {bindMethods} from './bindMethods';
+import autoBind from 'react-autobind';
 
 function topPosition(domElt) {
   if (!domElt) {
@@ -15,7 +14,7 @@ export default class InfiniteScroll extends React.Component {
   constructor(props) {
     super(props);
 
-    bindMethods(this, ['scrollListener', 'attachScrollListener', 'detachScrollListener']);
+    autoBind(this);
   }
 
   componentDidMount() {
