@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import deepEqual from 'deep-equal';
 import autoBind from 'react-autobind';
+import PropTypes from 'prop-types';
 
 function topPosition(domElt) {
   if (!domElt) {
@@ -10,7 +11,7 @@ function topPosition(domElt) {
   return domElt.offsetTop + topPosition(domElt.offsetParent);
 }
 
-export default class InfiniteScroll extends React.Component {
+export default class InfiniteScroll extends Component {
   constructor(props) {
     super(props);
 
@@ -71,10 +72,10 @@ InfiniteScroll.defaultProps = {
   threshold: 250
 };
 
-InfiniteScroll.PropTypes = {
-  pageStart: React.PropTypes.number,
-  hasMore: React.PropTypes.bool,
-  loadMore: React.PropTypes.func.isRequired,
-  threshold: React.PropTypes.number,
-  loader: React.PropTypes.node.isRequired
+InfiniteScroll.propTypes = {
+  pageStart: PropTypes.number,
+  hasMore: PropTypes.bool,
+  loadMore: PropTypes.func.isRequired,
+  threshold: PropTypes.number,
+  loader: PropTypes.node.isRequired
 };
