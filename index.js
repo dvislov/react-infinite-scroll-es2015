@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import deepEqual from 'deep-equal';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
@@ -14,7 +13,7 @@ function topPosition(domElt) {
 export default class InfiniteScroll extends Component {
   constructor(props) {
     super(props);
-
+    this.myRef = React.createRef();
     autoBind(this);
   }
 
@@ -35,19 +34,17 @@ export default class InfiniteScroll extends Component {
     this.detachScrollListener();
   }
 
-  render() {
-    let props = this.props;
-    return React.DOM.div(null, props.children, props.hasMore && props.loader);
-  }
-
   scrollListener() {
-    let el = ReactDOM.findDOMNode(this);
-    let scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+    const el = this.myRef.current;
+    const scrollTop =
+      window.pageYOffset !== undefined
+        ? window.pageYOffset
+        : (document.documentElement || document.body.parentNode || document.body).scrollTop;
     if (topPosition(el) + el.offsetHeight - scrollTop - window.innerHeight < Number(this.props.threshold)) {
       this.detachScrollListener();
       // call loadMore after detachScrollListener to allow
       // for non-async loadMore functions
-      this.props.loadMore(this.pageLoaded += 1);
+      this.props.loadMore((this.pageLoaded += 1));
     }
   }
 
@@ -64,12 +61,24 @@ export default class InfiniteScroll extends Component {
     window.removeEventListener('scroll', this.scrollListener);
     window.removeEventListener('resize', this.scrollListener);
   }
+
+  render() {
+    const { children, hasMore, loader } = this.props;
+    return (
+      <div ref={this.myRef}>
+        {children}
+        {hasMore && loader}
+      </div>
+    );
+  }
 }
 
 InfiniteScroll.defaultProps = {
   pageStart: 0,
   hasMore: false,
-  threshold: 250
+  threshold: 250,
+  loader: null,
+  children: null,
 };
 
 InfiniteScroll.propTypes = {
@@ -77,5 +86,6 @@ InfiniteScroll.propTypes = {
   hasMore: PropTypes.bool,
   loadMore: PropTypes.func.isRequired,
   threshold: PropTypes.number,
-  loader: PropTypes.node.isRequired
+  loader: PropTypes.node,
+  children: PropTypes.node,
 };

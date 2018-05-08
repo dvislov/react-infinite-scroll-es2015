@@ -1,6 +1,6 @@
 {
   "name": "react-infinite-scroll-es2015",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "React infinite scroll component as ES2015 module",
   "main": "index.js",
   "scripts": {
@@ -25,10 +25,8 @@
   "homepage": "https://github.com/vdv73rus/react-infinite-scroll-es2015#readme",
   "dependencies": {
     "deep-equal": "^1.0.1",
-    "npm": "^6.0.0",
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
-    "react-autobind": "^1.0.6",
-    "react-dom": "^16.3.2"
+    "react-autobind": "^1.0.6"
   }
 }
